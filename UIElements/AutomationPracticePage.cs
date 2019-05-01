@@ -20,5 +20,9 @@ namespace UnitTestProject2
 
         [FindsBy(How =How.Id,Using ="searchsubmit")]
         public IWebElement SubmitButton { get; set; }
+
+        [FindsBy(How =How.CssSelector,Using = "#et-boc > div > div.et_pb_section.et_pb_section_1.et_section_specialty > div > div.et_pb_column.et_pb_column_3_4.et_pb_column_0.et_pb_specialty_column.et_pb_css_mix_blend_mode_passthrough > div > div > div > div > ul > li:nth-child(6) > a")]
+        public IWebElement LoginPageLink { get; set; }
+
     }
 }

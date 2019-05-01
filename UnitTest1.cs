@@ -8,8 +8,8 @@ namespace UnitTestProject2
     [TestClass]
     public class UnitTest1
     {
-        [TestInitialize]
-        public void GoToWebsite()
+        [AssemblyInitialize]
+        public static void GoToWebsite(TestContext testContext)
         {
             NavigateTo.NavigateToWebsite();
             Actions.MaximizeScreen();
@@ -31,9 +31,22 @@ namespace UnitTestProject2
             StringAssert.Equals("Skills Improved:", TextOnPage);
         }
 
-        [TestCleanup]
+        [TestMethod]
 
-        public void ShutDown()
+        public void LoginToPage()
+        {
+            //Arrange
+            LoginPage login = new LoginPage();
+            NavigateTo.NavigateToLoginPage();
+            //Act
+            Actions.FillInLoginPage();
+            //Assert
+            IAlert.Equals(login.LoginErrorAlert, "Invalid Email or password.");
+        }
+
+        [AssemblyCleanup]
+
+        public static void ShutDown()
         {
             Driver.driver.Quit();
         }

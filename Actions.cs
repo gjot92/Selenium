@@ -34,5 +34,16 @@ namespace UnitTestProject2
         {
             Driver.driver.Manage().Window.Maximize();
         }
+
+        public static void FillInLoginPage()
+        {
+            LoginPage loginPage = new LoginPage();
+
+            loginPage.EmailTextBox.SendKeys(Config.Credentials.validEmail);
+            loginPage.PasswordTextBox.SendKeys(Config.Credentials.validPassword);
+            loginPage.SignInButton.Click();
+
+           
+        }
     }
 }

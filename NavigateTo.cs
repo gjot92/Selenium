@@ -24,5 +24,14 @@ namespace UnitTestProject2
             homePage.AutomationExercisesTab.Click();
 
         }
+
+        public static void NavigateToLoginPage()
+        {
+            HomePage homePage = new HomePage();
+            AutomationPracticePage automationPractice = new AutomationPracticePage();
+
+            homePage.AutomationExercisesTab.Click();
+            automationPractice.LoginPageLink.Click();
+        }
     }
 }
